@@ -1,0 +1,63 @@
+module.exports = {
+    env: {
+        node: true,
+        es6: true
+    },
+    parserOptions: {
+        ecmaVersion: 2017
+    },
+    extends: 'eslint:recommended',
+    rules: {
+        'array-bracket-spacing': ['error', 'never'],
+        'arrow-parens': ['error', 'always'],
+        'arrow-spacing': 'error',
+        'brace-style': 'error',
+        'camelcase': 'error',
+        'comma-dangle': ['error', 'never'],
+        'comma-spacing': 'error',
+        'computed-property-spacing': ['error', 'never'],
+        'consistent-this': ['error', 'self'],
+        'eol-last': ['error', 'always'],
+        'eqeqeq': ['error', 'always'],
+        'func-call-spacing': ['error', 'never'],
+        'handle-callback-err': 'error',
+        'indent': ['error', 4, {'SwitchCase': 1}],
+        'key-spacing': 'error',
+        'keyword-spacing': 'error',
+        'linebreak-style': ['error', 'windows'],
+        'max-len': ['error', 120],
+        'new-parens': 'error',
+        'no-confusing-arrow': 'error',
+        'no-duplicate-imports': 'error',
+        'no-multiple-empty-lines': ['error', {'max': 1}],
+        'no-multi-spaces': 'error',
+        'no-return-await': 'error',
+        'no-template-curly-in-string': 'error',
+        'no-trailing-spaces': 'error',
+        'no-var': 'error',
+        'no-whitespace-before-property': 'error',
+        'object-curly-spacing': ['error', 'never'],
+        'prefer-const': 'error',
+        'prefer-template': 'error',
+        'prefer-arrow-callback': ['error'],
+        'quotes': ['error', 'single'],
+        'require-yield': 'error',
+        'rest-spread-spacing': ['error', 'never'],
+        'semi': ['error', 'always'],
+        'semi-spacing': 'error',
+        'space-before-blocks': 'error',
+        'space-before-function-paren': ['error', {anonymous: 'never', named: 'never', asyncArrow: 'always'}],
+        'space-in-parens': ['error', 'never'],
+        'space-infix-ops': 'error',
+        'space-unary-ops': 'error',
+        'spaced-comment': ['error', 'always'],
+        'switch-colon-spacing': 'error',
+        'template-curly-spacing': 'error',
+        'valid-jsdoc': ['error', {
+            'prefer': {'returns': 'return'},
+            'preferType': {'Boolean': 'boolean', 'Number': 'number', 'Array': 'array', 'Object': 'object', 'String': 'string',
+                'Function': 'function', 'Any': '*', 'any': '*'},
+            'requireReturn': false
+        }]
+    }
+};
