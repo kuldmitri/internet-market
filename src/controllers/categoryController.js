@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const categoryService = require('../services/categorytService');
+const categoryService = require('../services/categoryService');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
@@ -27,14 +27,14 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/add', jsonParser, (req, res, next) => {
-    categoryService.addNewProduct(req.body.product, (err, product) => {
+    categoryService.addNewCategory(req.body.product, (err, product) => {
         if (err) return next(err);
         res.send({product});
     });
 });
 
 router.post('/update', jsonParser, (req, res, next) => {
-    categoryService.updateProduct(req.body.product, (err, product) => {
+    categoryService.updateCategory(req.body.product, (err, product) => {
         if (err) return next(err);
         res.send({product});
     });

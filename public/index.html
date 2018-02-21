@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
     <script src="./js/jquery.min.js"></script>
     <script src="handlebars.js"></script>
-    <title>Library</title>
+    <title>Internet Market</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/dashboard.css" rel="stylesheet">
 </head>
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <label for="price" class="control-label">price</label>
                         <div>
-                            <input id="price" class="form-control" name="price" autocomplete="off"/>
+                            <input type="number" id="price" class="form-control" name="price" autocomplete="off"/>
                         </div>
                         <label style="display: none; color: red" id="priceValid" class="control-label">price must be
                             input</label>
@@ -53,7 +53,7 @@
                     <div class="form-group">
                         <label for="count" class="control-label">count</label>
                         <div>
-                            <input id="count" class="form-control" name="count" autocomplete="off"/>
+                            <input type="number" id="count" class="form-control" name="count" autocomplete="off"/>
                         </div>
                         <label style="display: none; color: red" id="countValid" class="control-label">count must be
                             input</label>
@@ -98,7 +98,7 @@
 
             <ul class="nav nav-sidebar">
                 <script id="templateCategory" type="text/x-handlebars-template">
-                    <div>Categories</div>
+                    <div>Categories of products</div>
                     {{#if this.message}}
                     <li><a> Ошибка {{this}}</a></li>
                     {{/if}}
@@ -109,7 +109,7 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header">Products</h1>
 
             <div id="search" class="table-responsive">
                 <script id="template" type="text/x-handlebars-template">

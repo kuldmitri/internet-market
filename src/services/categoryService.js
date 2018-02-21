@@ -5,7 +5,7 @@ exports.findAll = (cb) => {
     CategoryModel.find({}, cb);
 };
 
-exports.addNewProduct = (product, cb) => {
+exports.addNewCategory = (product, cb) => {
     CategoryModel.create(product, cb);
 };
 
@@ -17,6 +17,6 @@ exports.findById = (id, cb) => {
     CategoryModel.findById(id, cb);
 };
 
-exports.updateProduct = (product, cb) => {
+exports.updateCategory = (product, cb) => {
     CategoryModel.findByIdAndUpdate(product.id, product, cb);
 };
