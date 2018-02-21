@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const ProductModel = require('../db/productShema').ProductModel;
+'use strict';
+const {ProductModel} = require('../db/productShema');
 const ObjectID = require("mongodb").ObjectID;
 
 exports.findAll = (cb) => {
