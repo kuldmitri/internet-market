@@ -13,52 +13,24 @@
 </head>
 
 <body>
-<div id="WindowCreateProducts" class="modal fade">
+<div id="WindowCreateCategory" class="modal fade">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Add new products</h4>
+                <h4 class="modal-title">Edit Categories</h4>
             </div>
             <div class="modal-body">
                 <form name="CreateProducts" class="form-horizontal">
                     <input type="hidden" name="id" value="0"/>
-
                     <div class="form-group">
-                        <label for="selectCategory" class="control-label">Category</label>
+                        <label for="name" class="control-label">title</label>
                         <div>
-                            <select id="selectCategory">
-                            </select>
+                            <input id="name" class=" form-control" name="title" autocomplete="off"/>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="title" class="control-label">title</label>
-                        <div>
-                            <input id="title" class=" form-control" name="title" autocomplete="off"/>
-                        </div>
-                        <label style="display: none; color: red" id="titleValid" class="control-label">title must be
+                        <label style="display: none; color: red" id="nameValid" class="control-label">name must be
                             input</label>
                     </div>
-
-                    <div class="form-group">
-                        <label for="price" class="control-label">price</label>
-                        <div>
-                            <input id="price" class="form-control" name="price" autocomplete="off"/>
-                        </div>
-                        <label style="display: none; color: red" id="priceValid" class="control-label">price must be
-                            input</label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="count" class="control-label">count</label>
-                        <div>
-                            <input id="count" class="form-control" name="count" autocomplete="off"/>
-                        </div>
-                        <label style="display: none; color: red" id="countValid" class="control-label">count must be
-                            input</label>
-                    </div>
-
                 </form>
             </div>
             <div class="modal-footer">
@@ -83,7 +55,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Products</a></li>
-                <li><a href="categories.html">Categories</a></li>
+                <li><a href="#">Categories</a></li>
                 <li><a href="#">Purchases</a></li>
                 <li><a href="#">Orders</a></li>
                 <li><a href="#">Users</a></li>
@@ -94,24 +66,24 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div id="ulCategories" class="col-sm-3 col-md-2 sidebar">
-
+        <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <script id="templateCategory" type="text/x-handlebars-template">
-                    <div>Categories</div>
+                <script id="ulCategories" type="text/x-handlebars-template">
                     {{#if this.message}}
-                    <li><a> Ошибка {{this}}</a></li>
+                    <li>Ошибка {{this}}</li>
                     {{/if}}
-                    {{#each categories}}
-                    <li><a class="liCategory" id={{this._id}}>{{this.name}}</a></li>
+                    {{#each products}}
+                    <li class="liCategory" id={{this._id}}>{{this.name}}</li>
                     {{/each}}
+                    <a href="#WindowCreateProducts" class="btn btn-primary" data-toggle="modal">Add new</a>
                 </script>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header">Categories</h1>
 
             <div id="search" class="table-responsive">
+
                 <script id="template" type="text/x-handlebars-template">
                     {{#if this.message}}
                     <div>Ошибка {{this}}</div>
@@ -121,10 +93,7 @@
                         <tr>
                             <th>№</th>
                             <th>id</th>
-                            <th>category</th>
-                            <th>title</th>
-                            <th>price</th>
-                            <th>count</th>
+                            <th>name</th>
                             <th>actions</th>
                         <tr>
                         </thead>
@@ -132,10 +101,7 @@
                         <tr>
                             <td>{{@index}}</td>
                             <td>{{this._id}}</td>
-                            <td>{{this.categoryId}}</td>
-                            <td>{{this.title}}</td>
-                            <td>{{this.price}}</td>
-                            <td>{{this.count}}</td>
+                            <td>{{this.name}}</td>
                             <td>
                                 <a class="updateLink" id={{this._id}}> update </a>
                                 <a class="deleteLink" id={{this._id}}> delete </a>
@@ -144,15 +110,14 @@
                         </tr>
                         {{/each}}
                     </table>
-
+                    <a id="AddNew" href="#WindowCreateCategory" class="btn btn-primary" data-toggle="modal">Add new</a>
                 </script>
             </div>
-            <button id="AddNew" type="button" class="btn btn-primary">Add New</button>
         </div>
     </div>
 </div>
 
-<script src="./js/product.js"></script>
+<script src="./js/category.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/docs.min.js"></script>
 
