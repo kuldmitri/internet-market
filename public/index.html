@@ -1,73 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html ng-app="InternetMarketApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
-    <script src="./js/jquery.min.js"></script>
-    <script src="handlebars.js"></script>
     <title>Internet Market</title>
+    <script src="./js/jquery.min.js"></script>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
-<div id="WindowCreateProducts" class="modal fade">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Add new products</h4>
-            </div>
-            <div class="modal-body">
-                <form name="CreateProducts" class="form-horizontal">
-                    <input type="hidden" name="id" value="0"/>
-
-                    <div class="form-group">
-                        <label for="selectCategory" class="control-label">Category</label>
-                        <div>
-                            <select id="selectCategory">
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="title" class="control-label">title</label>
-                        <div>
-                            <input id="title" class=" form-control" name="title" autocomplete="off"/>
-                        </div>
-                        <label style="display: none; color: red" id="titleValid" class="control-label">title must be
-                            input</label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="price" class="control-label">price</label>
-                        <div>
-                            <input type="number" id="price" class="form-control" name="price" autocomplete="off"/>
-                        </div>
-                        <label style="display: none; color: red" id="priceValid" class="control-label">price must be
-                            input</label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="count" class="control-label">count</label>
-                        <div>
-                            <input type="number" id="count" class="form-control" name="count" autocomplete="off"/>
-                        </div>
-                        <label style="display: none; color: red" id="countValid" class="control-label">count must be
-                            input</label>
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="Create">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -95,66 +39,38 @@
 <div class="container-fluid">
     <div class="row">
         <div id="ulCategories" class="col-sm-3 col-md-2 sidebar">
-
             <ul class="nav nav-sidebar">
-                <script id="templateCategory" type="text/x-handlebars-template">
-                    <div>Categories of products</div>
-                    {{#if this.message}}
-                    <li><a> Ошибка {{this}}</a></li>
-                    {{/if}}
-                    {{#each categories}}
-                    <li><a class="liCategory" id={{this._id}}>{{this.name}}</a></li>
-                    {{/each}}
-                </script>
+                <li>One</li>
+                <li>Two</li>
             </ul>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Products</h1>
-
-            <div id="search" class="table-responsive">
-                <script id="template" type="text/x-handlebars-template">
-                    {{#if this.message}}
-                    <div>Ошибка {{this}}</div>
-                    {{/if}}
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>id</th>
-                            <th>category</th>
-                            <th>title</th>
-                            <th>price</th>
-                            <th>count</th>
-                            <th>actions</th>
-                        <tr>
-                        </thead>
-                        {{#each products}}
-                        <tr>
-                            <td>{{@index}}</td>
-                            <td>{{this._id}}</td>
-                            <td>{{this.categoryId}}</td>
-                            <td>{{this.title}}</td>
-                            <td>{{this.price}}</td>
-                            <td>{{this.count}}</td>
-                            <td>
-                                <a class="updateLink" id={{this._id}}> update </a>
-                                <a class="deleteLink" id={{this._id}}> delete </a>
-                                <a class="orderLink" id={{this._id}}> order </a>
-                            </td>
-                        </tr>
-                        {{/each}}
-                    </table>
-
-                </script>
-            </div>
-            <button id="AddNew" type="button" class="btn btn-primary">Add New</button>
+        <div ng-controller="productController" class="col-sm-9 col-md-10">
+            <ng-include src="'TableProducts.html'"></ng-include>
         </div>
     </div>
 </div>
 
-<script src="./js/product.js"></script>
+
+<script src="js/lib/angular.min.js"></script>
+<script>
+    let model = {
+        products: [{
+            _id: 'weeqwwe1213',
+            categoryId: 'tytyfdg44545',
+            title: 'mulo',
+            price: 123,
+            count: 4564
+        }, {
+            _id: 'jfjgf5545',
+            categoryId: 'jdjksfds3434',
+            title: 'kora',
+            price: 123,
+            count: 4564
+        }]
+    };
+</script>
+<script src="js/controllers/productController.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/docs.min.js"></script>
-
 </body>
 </html>

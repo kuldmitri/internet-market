@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const logger = require('../libs/logger')(module);
+const logger = require('../lib/logger')(module);
 
 mongoose.connect(process.env.urlMongodb);
 const db = mongoose.connection;

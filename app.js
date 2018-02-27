@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const productController = require('./src/controllers/productController');
 const categoryController = require('./src/controllers/categoryController');
-const logger = require('./src/libs/logger')(module);
+const logger = require('./src/lib/logger')(module);
 
 logger.info(`process.env.port = ${process.env.port}`);
 logger.info(`process.env.urlMongodb = ${process.env.urlMongodb}`);
