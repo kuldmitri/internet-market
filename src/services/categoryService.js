@@ -18,5 +18,5 @@ exports.findById = (id, cb) => {
 };
 
 exports.updateCategory = (product, cb) => {
-    CategoryModel.findByIdAndUpdate(product.id, product, cb);
+    CategoryModel.findByIdAndUpdate(product._id, product, cb);
 };

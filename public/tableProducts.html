@@ -1,4 +1,4 @@
-<div ng-controller="productController" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div  class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Products</h1>
     <button ng-click="loadProducts()">Загрузить</button>
 
@@ -24,9 +24,9 @@
                 <td>{{item.price}}</td>
                 <td>{{item.count}}</td>
                 <td>
-                    <a class="updateLink" id={{item._id}}> update </a>
-                    <a class="deleteLink" id={{item._id}}> delete </a>
-                    <a class="orderLink" id={{item._id}}> order </a>
+                    <a ng-click="updateById($event)" id={{item._id}}> update </a>
+                    <a ng-click="deleteById($event)" id={{item._id}}> delete </a>
+                    <a  id={{item._id}}> order </a>
                 </td>
             </tr>
             <tbody>

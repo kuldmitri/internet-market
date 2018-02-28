@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -44,32 +43,42 @@
                 <li>Two</li>
             </ul>
         </div>
-        <div ng-controller="productController" class="col-sm-9 col-md-10">
-            <ng-include src="'TableProducts.html'"></ng-include>
+
+        <div ng-controller="editProductController" class="col-sm-9 col-md-10">
+            <ng-include src="'editProduct.html'"></ng-include>
         </div>
+
+        <div ng-controller="productController" class="col-sm-9 col-md-10">
+            <ng-include src="'tableProducts.html'"></ng-include>
+        </div>
+
+        <div ng-controller="editCategoryController" class="col-sm-9 col-md-10">
+            <ng-include src="'editCategory.html'"></ng-include>
+        </div>
+
+        <div ng-controller="categoryController" class="col-sm-9 col-md-10">
+            <ng-include src="'tableCategories.html'"></ng-include>
+        </div>
+
     </div>
 </div>
 
-
 <script src="js/lib/angular.min.js"></script>
+
 <script>
     let model = {
-        products: [{
-            _id: 'weeqwwe1213',
-            categoryId: 'tytyfdg44545',
-            title: 'mulo',
-            price: 123,
-            count: 4564
-        }, {
-            _id: 'jfjgf5545',
-            categoryId: 'jdjksfds3434',
-            title: 'kora',
-            price: 123,
-            count: 4564
-        }]
+        products: [],
+        categoryId: null,
+        categories: [],
+        product: {}
     };
+
 </script>
+
 <script src="js/controllers/productController.js"></script>
+<script src="js/controllers/editProductController.js"></script>
+<script src="js/controllers/categoryController.js"></script>
+<script src="js/controllers/editCategoryController.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/docs.min.js"></script>
 </body>
