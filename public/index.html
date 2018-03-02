@@ -25,8 +25,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#!productsPage">Products</a></li>
-                <li><a href="#!categoriesPage">Categories</a></li>
+                <li><a ui-sref="products">Products</a><li>
+                <li><a ui-sref="categories">Categories</a></li>
                 <li><a href="#">Purchases</a></li>
                 <li><a href="#">Orders</a></li>
                 <li><a href="#">Users</a></li>
@@ -36,15 +36,14 @@
 </div>
 
 <ng-view></ng-view>
+<div class="container-fluid" ui-view></div>
 
-<script src="js/lib/angular.min.js"></script>
-<script>
-    app = {};
-    app.productId = "";
-    app.categoryId = "";
-</script>
-<script src="js/lib/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
+
+<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+
 <script src="js/app.js"></script>
+
 <script src="js/controllers/productController.js"></script>
 <script src="js/controllers/categoryController.js"></script>
 <script src="js/controllers/editProductController.js"></script>

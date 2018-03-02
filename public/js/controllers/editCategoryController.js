@@ -1,5 +1,4 @@
 InternetMarketApp.controller("editCategoryController", function ($scope, $http) {
-    $scope.categoryId = app.categoryId;
 
     $scope.loadCategory = function () {
         if ($scope.categoryId) {

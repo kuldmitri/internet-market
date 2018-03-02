@@ -1,6 +1,5 @@
-InternetMarketApp.controller("productController", function ($scope, $http, $location, $routeParams) {
+InternetMarketApp.controller("productController", function ($scope, $http, $location) {
 
-    console.log($routeParams);
     $scope.loadProducts = function () {
         $http({method: 'GET', url: 'products/all'}).then(function success(products) {
             $scope.products = products.data;
@@ -36,8 +35,8 @@ InternetMarketApp.controller("productController", function ($scope, $http, $loca
         });
     };
 
-
     $scope.options = $scope.getCategories();
     $scope.products = $scope.loadProducts();
 
 });
+

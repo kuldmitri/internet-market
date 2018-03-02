@@ -1,39 +1,36 @@
+<div class="row">
+    <div id="ulCategories" class="col-sm-3 col-md-2 sidebar">
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-<div class="container-fluid">
-    <div class="row">
-        <div id="ulCategories" class="col-sm-3 col-md-2 sidebar">
+        <h1 ng-if="product._id" class="page-header">Edit product with id {{product._id}}</h1>
+        <h1 ng-if="!product._id" class="page-header">Add new product </h1>
+
+        <div class="form-group">
+            <label for="selectCategory" class="control-label">Category</label>
+            <select ng-model="product.category_id" ng-options="o.id as o.label for o in options" id="selectCategory"></select>
+            <button type="button" class="btn btn-primary" ng-click="getCategory">load</button>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-            <h1 ng-if="product._id" class="page-header">Edit product with id {{product._id}}</h1>
-            <h1 ng-if="!product._id" class="page-header">Add new product </h1>
-
-            <div class="form-group">
-                <label for="selectCategory" class="control-label">Category</label>
-                <select ng-model="category" ng-options="o.label for o in options" id="selectCategory"></select>
-                <button type="button" class="btn btn-primary" ng-click="getCategory">load</button>
-            </div>
-
-            <div class="form-group">
-                <label for="title" class="control-label">title</label>
-                <input ng-model="product.title" id="title" class=" form-control" name="title" value={{product.title}}
-                       autocomplete="off"/>
-            </div>
-
-            <div class="form-group">
-                <label for="price" class="control-label">price</label>
-                <input ng-model="product.price" type="number" id="price" class="form-control" value={{product.price}}
-                       name="price" autocomplete="off"/>
-            </div>
-
-            <div class="form-group">
-                <label for="count" class="control-label">count</label>
-                <input ng-model="product.count" type="number" id="count" class="form-control" name="count"
-                       value={{product.count}} autocomplete="off"/>
-            </div>
-
-            <a href='#!productsPage' class="btn btn-primary"> Exit </a>
-            <button type="button" class="btn btn-primary" ng-click="saveProduct()">OK</button>
+        <div class="form-group">
+            <label for="title" class="control-label">title</label>
+            <input ng-model="product.title" id="title" class=" form-control" name="title" value={{product.title}}
+                   autocomplete="off"/>
         </div>
+
+        <div class="form-group">
+            <label for="price" class="control-label">price</label>
+            <input ng-model="product.price" type="number" id="price" class="form-control" value={{product.price}}
+                   name="price" autocomplete="off"/>
+        </div>
+
+        <div class="form-group">
+            <label for="count" class="control-label">count</label>
+            <input ng-model="product.count" type="number" id="count" class="form-control" name="count"
+                   value={{product.count}} autocomplete="off"/>
+        </div>
+
+        <a ui-sref="products" class="btn btn-primary"> Exit </a>
+        <button type="button" class="btn btn-primary" ng-click="saveProduct()">OK</button>
     </div>
 </div>

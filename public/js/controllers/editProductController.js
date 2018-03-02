@@ -1,5 +1,6 @@
-InternetMarketApp.controller("editProductController", function ($scope, $http) {
-    $scope.productId = app.productId;
+InternetMarketApp.controller("editProductController", function ($scope, $http, dataProduct) {
+
+    $scope.product = dataProduct;
 
     $scope.category = {};
 
@@ -43,5 +44,5 @@ InternetMarketApp.controller("editProductController", function ($scope, $http) {
     };
 
     $scope.options = $scope.getCategories();
-    $scope.product = $scope.loadProduct();
+    // $scope.product = $scope.loadProduct();
 });
