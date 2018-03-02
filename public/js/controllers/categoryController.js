@@ -1,24 +1,22 @@
-InternetMarketApp.controller("categoryController", function ($scope, $http) {
-    $scope.data = model;
+InternetMarketApp.controller("categoryController", function ($scope, $http, $location) {
 
     $scope.loadCategories = function () {
         $http({method: 'GET', url: 'categories/all'}).then(function success(categories) {
-            $scope.data.categories = categories.data;
-            model.categories = categories.data;
+            $scope.categories = categories.data;
         });
     };
 
-    $scope.updateById = function (event) {
-        model.categoryId = event.target.id;
-        $http({method: 'GET', url: 'categories/' + event.target.id}).then(function success(category) {
-            model.category = category;
-        });
+    $scope.updateById = function (id) {
+        app.categoryId = id;
+        $location.path("/editCategoryPage");
     };
 
-    $scope.deleteById = function (event) {
-        model.categoryId = event.target.id;
-        $http({method: 'GET', url: 'categories/delete/' + event.target.id}).then(function success(category) {
-            model.category = category;
+    $scope.deleteById = function (id) {
+        $http({method: 'GET', url: 'categories/delete/' + id}).then(function success(category) {
+            console.log(category);
         });
+        $scope.loadCategories();
     };
+
+    $scope.categories = $scope.loadCategories();
 });

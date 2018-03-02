@@ -25,5 +25,5 @@ exports.findById = (id, cb) => {
 
 exports.updateProduct = (product, cb) => {
     product.categoryId = new ObjectID(product.categoryId);
-    ProductModel.findByIdAndUpdate(product.id, product, cb);
+    ProductModel.findByIdAndUpdate(product._id, product, cb);
 };

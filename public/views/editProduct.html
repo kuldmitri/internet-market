@@ -1,10 +1,12 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Edit product with id {{productId}}</h1>
-    <button ng-click="loadProduct(model.productId)">Загрузить</button>
+
+    <h1 ng-if="product._id" class="page-header">Edit product with id {{product._id}}</h1>
+    <h1 ng-if="!product._id" class="page-header">Add new product </h1>
 
     <div class="form-group">
         <label for="selectCategory" class="control-label">Category</label>
-        <select id="selectCategory"></select>
+        <select ng-model="category" ng-options="o.label for o in options" id="selectCategory"></select>
+        <button type="button" class="btn btn-primary" ng-click="getCategory">load</button>
     </div>
 
     <div class="form-group">
@@ -25,6 +27,6 @@
                value={{product.count}} autocomplete="off"/>
     </div>
 
-    <button type="button" class="btn btn-primary">Exit</button>
-    <button type="button" class="btn btn-primary" ng-click="saveProduct(model.productId)">OK</button>
+    <a href='#!productsPage' class="btn btn-primary"> Exit </a>
+    <button type="button" class="btn btn-primary" ng-click="saveProduct()">OK</button>
 </div>

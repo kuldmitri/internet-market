@@ -1,25 +1,29 @@
 InternetMarketApp.controller("editCategoryController", function ($scope, $http) {
-    $scope.category = {name:'wewewe'};
-    $scope.categoryId = model.categoryId;
+    $scope.categoryId = app.categoryId;
 
     $scope.loadCategory = function () {
-        $http({method: 'GET', url: 'categories/' + model.categoryId}).then(function success(category) {
-            $scope.category = category.data;
-            $scope.categoryId = model.categoryId;
-            alert(model.categoryId);
-        });
-    };
-    $scope.saveCategory = function () {
-        console.log($scope.category);
         if ($scope.categoryId) {
-            $http.post('categories/update', $scope.category).then(function success(category) {
+            $http({method: 'GET', url: 'categories/' + $scope.categoryId}).then(function success(category) {
                 $scope.category = category.data;
+            })
+        } else {
+            $scope.category = {}
+        }
+    };
+
+    $scope.saveCategory = function () {
+        if ($scope.category._id) {
+            $http.post('categories/update', $scope.category).then(function success(category) {
+                console.log(category);
+                app.categoryId = "";
             });
         } else {
             $http.post('categories/add', $scope.category).then(function success(category) {
-                $scope.category = category.data;
+                console.log(category);
             });
         }
-        $scope.categoryId = null;
     };
+
+    $scope.category = $scope.loadCategory();
+
 });

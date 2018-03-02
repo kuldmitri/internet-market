@@ -1,0 +1,13 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+    <h1 ng-if="categoryId" class="page-header">Edit category with id {{category._id}}</h1>
+    <h1 ng-if="!categoryId" class="page-header">Add new category </h1>
+
+    <div class="form-group">
+        <label for="name" class="control-label">name</label>
+        <input ng-model="category.name" id="name" class=" form-control" name="name" autocomplete="off"/>
+    </div>
+
+    <a href='#!categoriesPage' class="btn btn-primary"> Exit </a>
+    <button type="button" class="btn btn-primary" ng-click="saveCategory()">OK</button>
+</div>
