@@ -1,5 +1,6 @@
-InternetMarketApp.controller("productController", function ($scope, $http, $location) {
+InternetMarketApp.controller("productController", function ($scope, $http, $location, $routeParams) {
 
+    console.log($routeParams);
     $scope.loadProducts = function () {
         $http({method: 'GET', url: 'products/all'}).then(function success(products) {
             $scope.products = products.data;
