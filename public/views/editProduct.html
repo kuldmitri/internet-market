@@ -8,7 +8,7 @@
 
         <div class="form-group">
             <label for="selectCategory" class="control-label">Category</label>
-            <select ng-model="product.category_id" ng-options="o.id as o.label for o in options" id="selectCategory"></select>
+            <select ng-model="category" ng-options="o.label for o in options" id="selectCategory"></select>
             <button type="button" class="btn btn-primary" ng-click="getCategory">load</button>
         </div>
 
@@ -32,5 +32,8 @@
 
         <a ui-sref="products" class="btn btn-primary"> Exit </a>
         <button type="button" class="btn btn-primary" ng-click="saveProduct()">OK</button>
+        <button ng-if="product._id" ui-sref="products" type="button" class="btn btn-primary"
+                ng-click="deleteProduct(product._id)">Delete
+        </button>
     </div>
 </div>

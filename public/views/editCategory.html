@@ -13,5 +13,6 @@
 
         <a ui-sref="categories" class="btn btn-primary"> Exit </a>
         <button type="button" class="btn btn-primary" ng-click="saveCategory()">OK</button>
+        <button ng-if="category._id"  ui-sref="categories" type="button" class="btn btn-primary" ng-click="deleteCategory(category._id)">Delete</button>
     </div>
 </div>

@@ -11,24 +11,19 @@
                     <th>№</th>
                     <th>id</th>
                     <th>name</th>
-                    <th>actions</th>
                 <tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="item in categories">
+                <tr ng-repeat="item in categories" ui-sref="edit category({id: item._id})">
                     <td>{{$index}}</td>
                     <td>{{item._id}}</td>
                     <td>{{item.name}}</td>
-                    <td>
-                        <a ng-click="updateById(item._id)"> update </a>
-                        <a ng-click="deleteById(item._id)"> delete </a>
-                    </td>
                 </tr>
                 <tbody>
             </table>
 
         </div>
-        <a ui-sref=".edit" class="btn btn-primary"> Add New </a>
+        <a ui-sref="add category" class="btn btn-primary"> Add New </a>
     </div>
 </div>
 

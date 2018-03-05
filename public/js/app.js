@@ -1,5 +1,6 @@
-let InternetMarketApp = angular.module('InternetMarketApp', ["ui.router"])
-    .config(function($stateProvider, $urlRouterProvider) {
+let InternetMarketApp = angular.module('InternetMarketApp', ["ui.router"]);
+
+InternetMarketApp.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('products', {
@@ -35,11 +36,28 @@ let InternetMarketApp = angular.module('InternetMarketApp', ["ui.router"])
             templateUrl: "views/category.html",
             controller: 'categoryController',
         })
-        .state('categories.edit', {
-            url: "/edit",
+        .state('add category', {
+            url: "category-add",
             templateUrl: "views/editCategory.html",
-            controller: "editCategoryController"
-        });
+            controller: "editCategoryController",
+            resolve: {
+                dataCategory: [() => {}],
+            }
+        })
+        .state('edit category', {
+            url: "categories/:id",
+            templateUrl: "views/editCategory.html",
+            controller: "editCategoryController",
+            resolve: {
+                dataCategory: ['$stateParams', '$http', ($stateParams, $http) => {
+                    if ($stateParams.id) {
+                        return $http({method: 'GET', url: 'categories/' + $stateParams.id})
+                            .then(result => result.data);
+                    }
+                    return {};
+                }],
+            },
+        })
 
     // $urlRouterProvider.otherwise("/products");
 });
